@@ -4,7 +4,7 @@ module.exports = {
     commands: ['editsuggestion', 'suggestion'],
     minArgs: 2,
     maxArgs: -1,
-    expectedArgs: '<"accept" || "deny"> <messageID> <?reason>',
+    expectedArgs: '<"accept" || "deny"> <messageID> [reason]',
     callback: async function ({message, args, text, client, prefix, instance}) {
         const { guild } = message
         this.commands = ['suggestion']

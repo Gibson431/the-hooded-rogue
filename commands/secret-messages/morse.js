@@ -7,7 +7,7 @@ module.exports = {
 
     minArgs: 2,
     maxArgs: -1,
-    expectedArgs: '<"encrypt" or "decrypt"> <message>',
+    expectedArgs: '<"encrypt" || "decrypt"> <message>',
     callback: function ({message, args, text, client, prefix, instance}) {
         const { guild } = message
         this.commands = ['morse']

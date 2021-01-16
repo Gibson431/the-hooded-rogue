@@ -18,7 +18,7 @@ module.exports = {
     description: `Updates and sets the bot's nickname.`,
     minArgs: 0,
     maxArgs: -1,
-    expectedArgs: '<new nickname (optional)>',
+    expectedArgs: '[new nickname]',
     // ownerOnly: true,
     requiredPermissions: [
         'ADMINISTRATOR'

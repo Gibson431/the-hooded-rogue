@@ -2,7 +2,7 @@ module.exports = {
     commands: ['setpresence', 'sp'],
     category: 'Dev Commands',
     minArgs: 1,
-    defaultArgs: '<"dnd" || "invisible" || "online"> <?-m message>',
+    defaultArgs: '<"dnd" || "invisible" || "online"> ["-m" message]',
     callback: function ({message, args, text, client, prefix, instance}) {
         let statusMessage = null
         if (text.includes('-m')) {
