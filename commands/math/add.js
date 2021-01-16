@@ -8,12 +8,11 @@ module.exports = {
     expectedArgs: '<num1> <num2> etc.',
     callback: function ({message, args, text, client, prefix, instance}) {
         const { guild } = message
-        this.commands = ['ascii']
 
         syntaxtError = instance.messageHandler
             .get(guild, 'SYNTAX_ERROR')
             .replace('{PREFIX}', prefix)
-            .replace('{COMMAND}', this.commands[0])
+            .replace('{COMMAND}', this.names[0])
             .replace('{ARGUMENTS}', this.expectedArgs)
 
         let total = 0

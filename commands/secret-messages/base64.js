@@ -10,12 +10,11 @@ module.exports = {
     expectedArgs: '<"encrypt" or "decrypt"> <message>',
     callback: function ({message, args, text, client, prefix, instance}) {
         const { guild } = message
-        this.commands = ['base64']
 
         syntaxtError = instance.messageHandler
             .get(guild, 'SYNTAX_ERROR')
             .replace('{PREFIX}', prefix)
-            .replace('{COMMAND}', this.commands[0])
+            .replace('{COMMAND}', this.names[0])
             .replace('{ARGUMENTS}', this.expectedArgs)
 
         let intent = args.shift()

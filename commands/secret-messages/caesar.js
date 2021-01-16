@@ -9,13 +9,12 @@ module.exports = {
     expectedArgs: '<"encrypt" or "decrypt"> <numerical key> <message>',
     callback: function ({message, args, text, client, prefix, instance}) {
         const { guild } = message
-        this.commands = ['caesar']
 
         // Set the syntax error message
         syntaxtError = instance.messageHandler
             .get(guild, 'SYNTAX_ERROR')
             .replace('{PREFIX}', prefix)
-            .replace('{COMMAND}', this.commands[0])
+            .replace('{COMMAND}', this.names[0])
             .replace('{ARGUMENTS}', this.expectedArgs)
 
         if ((args[0] === 'encrypt' || args[0] === 'decrypt') && (!isNaN(args[1]))) {
