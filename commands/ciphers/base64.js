@@ -8,7 +8,7 @@ module.exports = {
     minArgs: 2,
     maxArgs: -1,
     expectedArgs: '<"encrypt" or "decrypt"> <message>',
-    callback: function ({message, args, text, client, prefix, instance}) {
+    callback: async function ({message, args, text, client, prefix, instance}) {
         const { guild } = message
 
         syntaxtError = instance.messageHandler
@@ -23,14 +23,17 @@ module.exports = {
         switch (intent) {
             case 'e':
             case 'encrypt':
-                message.reply(`\`${btoa(target)}\``)
+                await message.reply(`\`\`\`${btoa(target)}\`\`\``)
+                await message.delete()
                 break;
             case 'd':
             case 'decrypt':
-                message.reply(`\`${atob(target)}\``)
+                await message.reply(`||${atob(target)}||`)
+                await message.delete()
                 break;
             default:
-                message.reply(syntaxtError)
+                await message.reply(syntaxtError)
+                await message.delete()
                 break;
         }
     }

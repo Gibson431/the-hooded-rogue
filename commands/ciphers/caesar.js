@@ -7,7 +7,7 @@ module.exports = {
     minArgs: 3,
     maxArgs: -1,
     expectedArgs: '<"encrypt" or "decrypt"> <numerical key> <message>',
-    callback: function ({message, args, text, client, prefix, instance}) {
+    callback: async function ({ message, args, text, client, prefix, instance }) {
         const { guild } = message
 
         // Set the syntax error message
@@ -21,7 +21,8 @@ module.exports = {
             let intent = args.shift()
             let key = args.shift()
             text = args.join(' ')
-            message.reply(Caesar.parse(intent, key, text))
-        } else { message.reply(syntaxtError) }
+            await message.reply(intent === `encrypt` ? `I hope you didn't forget your key ;) \`\`${Caesar.parse(intent, key, text)}\`\` ` : `||${Caesar.parse(intent, key, text)}||`)
+            await message.delete()
+        } else { await message.reply(syntaxtError); await message.delete() }
     }
 }

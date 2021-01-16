@@ -7,7 +7,7 @@ module.exports = {
     minArgs: 2,
     maxArgs: -1,
     expectedArgs: '<"encrypt" or "decrypt"> <message>',
-    callback: function ({message, args, text, prefix, instance}) {
+    callback: async function ({message, args, text, prefix, instance}) {
         const { guild } = message
 
         // Set the syntax error message
@@ -20,7 +20,8 @@ module.exports = {
         if (args[0] === 'encrypt' || args[0] === 'decrypt') {
             let intent = args.shift()
             text = args.join(' ')
-            message.reply(Morse.parse(intent, text))
-        } else { message.reply(syntaxtError) }
+            await message.reply(intent === `encrypt` ? ` \`\`${Morse.parse(intent, text)}\`\` ` : `||${Morse.parse(intent, text)}||`)
+            await message.delete()
+        } else { await message.reply(syntaxtError); await message.delete() }
     }
 }

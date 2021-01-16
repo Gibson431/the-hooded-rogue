@@ -5,7 +5,7 @@ module.exports = {
     minArgs: 2,
     maxArgs: -1,
     expectedArgs: '<"encrypt" or "decrypt"> <message>',
-    callback: function ({message, args, prefix, instance}) {
+    callback: async function ({message, args, prefix, instance}) {
         const { guild } = message
 
         syntaxtError = instance.messageHandler
@@ -23,7 +23,8 @@ module.exports = {
             case 'encrypt':
                 target = target.split('')
                 result = target.map(char => char.charCodeAt().toString(16))
-                message.reply(`\`${result.join(' ')}\``)
+                await message.reply(`\`\`\`${result.join(' ')}\`\`\``)
+                await message.delete()
                 break;
             case 'd':
             case 'decrypt':
@@ -32,10 +33,12 @@ module.exports = {
                         return String.fromCharCode(parseInt(char, 16))
                     } else { return '{?}' }
                 })
-                message.reply(`\`${result.join('')}\``)
+                await message.reply(`||${result.join('')}||`)
+                await message.delete()
                 break;
             default:
-                message.reply(syntaxtError)
+                await message.reply(syntaxtError)
+                await message.delete()
                 break;
         }
     }

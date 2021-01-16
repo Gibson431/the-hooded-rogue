@@ -33,7 +33,8 @@ module.exports = {
         cache.set(guild.id, channel.id, channel.name)
 
         message.reply(`Logging channel set!`)
-    }
+    },
+    testOnly: true
 }
 
 module.exports.getChannelId = (guildId) =>{
