@@ -7,7 +7,7 @@ module.exports = {
     description: 'Encrypts or decrypts a message using the base64 system.',
     minArgs: 2,
     maxArgs: -1,
-    expectedArgs: '<"encrypt" || "decrypt"> <message>',
+    expectedArgs: '<"encrypt" or "decrypt"> <message>',
     callback: function ({message, args, text, client, prefix, instance}) {
         const { guild } = message
         this.commands = ['base64']

@@ -6,7 +6,7 @@ module.exports = {
     description: 'Encrypts or decrypts a message using the caesar cipher.',
     minArgs: 3,
     maxArgs: -1,
-    expectedArgs: '<"encrypt" || "decrypt"> <numerical key> <message>',
+    expectedArgs: '<"encrypt" or "decrypt"> <numerical key> <message>',
     callback: function ({message, args, text, client, prefix, instance}) {
         const { guild } = message
         this.commands = ['caesar']

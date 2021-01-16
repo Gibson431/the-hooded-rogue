@@ -105,7 +105,7 @@
       "portuguese": "Adicionado o cargo {ROLE} para o comando {COMMAND}."
     },
     "SYNTAX_ERROR": {
-      "english": "Incorrect usage! Please use: ```{PREFIX}{COMMAND} {ARGUMENTS}```\nNote: Arguments wrapped in <> are compulsory, arguments wrapped in [] are optional and aruments written as \"something\" need to be written exactly as they are displayed. ",
+      "english": "Incorrect usage! Please use: ```{PREFIX}{COMMAND} {ARGUMENTS}```Note: Arguments wrapped in <> are compulsory, arguments wrapped in [] are optional and aruments written as \"something\" need to be written exactly as they are displayed. ",
       "spanish": "¡Uso incorrecto! Utilice `{PREFIX}{COMMAND} {ARGUMENTS}`",
         "portuguese": "Uso incorreto! Utilize `{PREFIX}{COMMAND} {ARGUMENTS}`"
     },
@@ -135,12 +135,12 @@
         "portuguese": "comandos"
       },
       "DESCRIPTION_FIRST_LINE": {
-        "english": "Use 🚪 to return to the previous menu.",
+        "english": "Use 🚪 to return to the previous menu.\nUse ⬅ and ➡ to navigate between pages.",
         "spanish": "Utilice 🚪 para volver al menú anterior.",
         "portuguese": "Use 🚪 para retornar ao menu anterior"
       },
       "DESCRIPTION_SECOND_LINE": {
-        "english": "Use ⬅ and ➡ to navigate between pages.",
+        "english": "**Note:** Arguments wrapped in <> are compulsory and arguments wrapped in [] are optional.",
         "spanish": "Utilice ⬅ y ➡ para navegar entre páginas.",
         "portuguese": "Use ⬅ e ➡ para navegar entre as páginas."
       },
