@@ -19,7 +19,7 @@
         "mongoose": "^5.11.8",
         "nodemon": "^2.0.7",
         "vigenere-cipher": "^1.0.0",
-        "wokcommands": "^1.2.0"
+        "wokcommands": "^1.2.1"
     },
     "_moduleAliases": {
         "@root": ".",
