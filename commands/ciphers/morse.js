@@ -1,4 +1,4 @@
-const Morse = require('../../ciphers/MorseManipulation')
+const Morse = require('../../cipher-manipulations/MorseManipulation')
 
 module.exports = {
     commands: ['morse', 'morsecode'],
@@ -10,6 +10,7 @@ module.exports = {
     callback: function ({message, args, text, prefix, instance}) {
         const { guild } = message
 
+        // Set the syntax error message
         syntaxtError = instance.messageHandler
             .get(guild, 'SYNTAX_ERROR')
             .replace('{PREFIX}', prefix)

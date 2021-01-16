@@ -1,4 +1,4 @@
-const Caesar = require('../../ciphers/CaesarManipulation')
+const Caesar = require('../../cipher-manipulations/CaesarManipulation')
 
 module.exports = {
     commands: ['caesar'],
