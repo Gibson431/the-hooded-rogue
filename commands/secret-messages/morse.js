@@ -1,10 +1,9 @@
 const Morse = require('../../ciphers/MorseManipulation')
 
 module.exports = {
-    commands: ['morsecode', 'morse'],
+    commands: ['morse', 'morsecode'],
     category: 'Ciphers',
     description: 'Encrypts or decrypts a message using morse code.',
-
     minArgs: 2,
     maxArgs: -1,
     expectedArgs: '<"encrypt" or "decrypt"> <message>',
