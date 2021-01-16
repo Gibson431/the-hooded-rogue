@@ -5,7 +5,6 @@ module.exports = {
     minArgs: 0,
     maxArgs: 0,
     callback: ({message, args, text, client, prefix, instance}) => {
-        // message.reply(`my status is currently set to: ${String(client.presence.status)}`)
-        message.reply('pong')
+        message.reply(`my status is currently set to: ${String(client.presence.status)}`)
     }
 }
