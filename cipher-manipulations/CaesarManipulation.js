@@ -16,7 +16,7 @@ function encrypt(shift, target) {
         for (i in newMessage) {
             newString = newString + newMessage[i]
         }
-        return ('`' + newString + '`')
+        return (newString)
     } else { return Embed.cipherError(`The caesar cipher uses numerical keys, please use the format: \n${commandFormat}`) }
 }
 
@@ -32,7 +32,7 @@ function decrypt(shift, target) {
         for (i in newMessage) {
             newString = newString + newMessage[i]
         }
-        return ('`' + newString + '`')
+        return (newString)
     } else { return Embed.cipherError(`The caesar cipher uses numerical keys, please use the format: \n${commandFormat}`) }
 }
 

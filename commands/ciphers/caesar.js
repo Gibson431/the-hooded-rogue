@@ -17,12 +17,27 @@ module.exports = {
             .replace('{COMMAND}', this.names[0])
             .replace('{ARGUMENTS}', this.expectedArgs)
 
-        if ((args[0] === 'encrypt' || args[0] === 'decrypt') && (!isNaN(args[1]))) {
-            let intent = args.shift()
-            let key = args.shift()
-            text = args.join(' ')
-            await message.reply(intent === `encrypt` ? `I hope you didn't forget your key ;) \`\`${Caesar.parse(intent, key, text)}\`\` ` : `||${Caesar.parse(intent, key, text)}||`)
-            await message.delete()
-        } else { await message.reply(syntaxtError); await message.delete() }
+        let intent = args.shift()
+        let key = args.shift()
+        let target = args.join(' ')
+
+        if (isNaN(key)) { await message.reply(syntaxtError); await message.delete(); return }
+
+        switch (intent) {
+            case 'e':
+            case 'encrypt':
+                await message.reply(`I hope you didn't forget your key ;) \`\`\`${Caesar.parse(intent, key, target)}\`\`\``)
+                await message.delete()
+                break;
+            case 'd':
+            case 'decrypt':
+                await message.reply(`||${Caesar.parse(intent, key, target)}||`)
+                await message.delete()
+                break;
+            default:
+                await message.reply(syntaxtError)
+                await message.delete()
+                break;
+        }
     }
 }

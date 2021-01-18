@@ -87,7 +87,7 @@ function encrypt(target) {
     for (index in newMessage) {
         newString = newString.concat(newMessage[index])
     }
-    return ('`' + newString + '`')
+    return (newString)
 }
 
 function decrypt(target) {
@@ -100,7 +100,7 @@ function decrypt(target) {
         if (newMessage[index] !== 'undefined') { newString = newString.concat(newMessage[index]) }
         else { newString = newString.concat('{?}') }
     }
-    return ('`' + newString + '`')
+    return (newString)
 }
 
 exports.parse = (intent, text) => {
