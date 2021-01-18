@@ -105,7 +105,7 @@
       "portuguese": "Adicionado o cargo {ROLE} para o comando {COMMAND}."
     },
     "SYNTAX_ERROR": {
-      "english": "Incorrect usage! Please use: ```{PREFIX}{COMMAND} {ARGUMENTS}```Note: Arguments wrapped in <> are compulsory, arguments wrapped in [] are optional and aruments written as \"something\" need to be written exactly as they are displayed. ",
+      "english": "Incorrect usage! Please use: ```{PREFIX}{COMMAND} {ARGUMENTS}```Note: Arguments wrapped in <> are compulsory, arguments wrapped in [] are optional and aruments written as \"phrase\" need to be written exactly as they are displayed. ",
       "spanish": "¡Uso incorrecto! Utilice `{PREFIX}{COMMAND} {ARGUMENTS}`",
         "portuguese": "Uso incorreto! Utilize `{PREFIX}{COMMAND} {ARGUMENTS}`"
     },
