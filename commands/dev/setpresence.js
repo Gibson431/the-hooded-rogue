@@ -1,6 +1,7 @@
 module.exports = {
     commands: ['setpresence', 'sp'],
     category: 'Dev Commands',
+    description: 'Sets the bot\'s presence.',
     minArgs: 1,
     defaultArgs: '<"dnd" or "invisible" or "online"> ["-m" message]',
     callback: function ({message, args, text, client, prefix, instance}) {

@@ -1,5 +1,7 @@
 module.exports = {
     commands: ['cg'],
+    category: 'Dev Commands',
+    description: 'creates a category, 5 text channels and a private role.',
     ownerOnly: true,
     callback: ({message, args}) => {
         if (args.length != 1) { message.reply('Incorrect usage'); return }

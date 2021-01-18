@@ -2,6 +2,8 @@ const Embed = require('@configurations/embed-construct')
 
 module.exports = {
     commands: ['editsuggestion', 'suggestion'],
+    category: 'Dev Commands',
+    description: 'Edits a suggestion and sets the status and color.',
     minArgs: 2,
     maxArgs: -1,
     expectedArgs: '<"accept" or "deny"> <messageID> [reason]',

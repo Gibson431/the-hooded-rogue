@@ -1,6 +1,8 @@
 const sleep = (delay) => new Promise((resolve) => { setTimeout(resolve, delay) })
 
 module.exports = {
+    category: 'Dev Commands',
+    description: 'Uhhhhh don\'t use this...',
     ownerOnly: true,
     callback: async ({message, args, text, client, prefix, instance}) => {
         let channels = message.guild.channels.cache.array()

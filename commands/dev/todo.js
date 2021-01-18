@@ -2,6 +2,8 @@ const Embed = require('@configurations/embed-construct')
 
 module.exports = {
     commands: ['todo'],
+    category: 'Dev Commands',
+    description: 'Creates and edits the todo list.',
     minArgs: 3,
     maxArgs: -1,
     expectedArgs: '<"new" or "edit"> <"complete" or "current" or "pain" or "lock"> [todo message] <-m messageID (only used when editing)> [-n note]',
