@@ -28,7 +28,7 @@ const client = new Discord.Client({
     presence: {
         status: process.env.EXTERNAL === 'true' ? 'online' : 'dnd',
         activity: {
-            type: 'PLAYING',
+            type: process.env.EXTERNAL === 'true' ? 'PLAYING' : 'WATCHING',
             name: process.env.EXTERNAL === 'true' ? 'with new features' : `'Development'`,
         }
     }
