@@ -25,6 +25,7 @@
         "@root": ".",
         "@ciphers": "./ciphers",
         "@configurations": "./configurations",
-        "@commands": "./commands"
+        "@commands": "./commands",
+        "@models": "./models"
     }
 }
