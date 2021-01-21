@@ -197,3 +197,27 @@ exports.todo = ({ todoText, status, optionalArgs = {}, todoMessage = null }) => 
         }
     }
 }
+
+exports.guildCreate = (guild) => {
+    return {
+        embed: {
+            color: 'RANDOM',
+            author: {
+                name: 'Joined New Server',
+                // icon_url: guild.iconURL() ? guild.iconURL() : ''
+                icon_url: guild.iconURL()
+            },
+            description: `**${guild.name}**`,
+            fields: [
+                {
+                    name: `Information:`,
+                    value: `Member Count: ${guild.memberCount}
+                        Owner: ${guild.owner.displayName}
+                        Region: ${guild.region}
+                        Partnered? ${guild.partnered}
+                        URL: ${guild.vanityURLCode ? guild.vanityURLCode : `This guild has no public invite link.`}`
+                }
+            ]
+        }
+    }
+}
