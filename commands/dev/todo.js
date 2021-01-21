@@ -6,7 +6,7 @@ module.exports = {
     description: 'Creates and edits the todo list.',
     minArgs: 3,
     maxArgs: -1,
-    expectedArgs: '<"new" or "edit"> <"complete" or "current" or "pain" or "lock"> [todo message] <-m messageID (only used when editing)> [-n note]',
+    expectedArgs: '<"new" or "edit"> <"complete" or "current" or "pain" or "lock"> [message] <-m messageID (only used when editing)> ["-n" note]',
     ownerOnly: true,
     callback: async function ({message, args, text, client, prefix, instance}) {
         const { guild } = message
