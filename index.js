@@ -35,8 +35,10 @@ const client = new Discord.Client({
 })
 
 client.on('ready', () => {
-    errorChannel = client.channels.cache.get(process.env.ERROR_CHANNEL_ID)
+    console.log(`Client ready as ${client.user.tag}`)
 
+    errorChannel = client.channels.cache.get(process.env.ERROR_CHANNEL_ID)
+    
     new WOKCommands(client, {
         commandsDir: 'commands',
         featureDir: 'features',
@@ -71,8 +73,6 @@ client.on('ready', () => {
             }
         ])
         .setColor(0x000000)
-
-    console.log(`Client ready as ${client.user.tag}`)
 })
 
 process.on('unhandledRejection', err => {
