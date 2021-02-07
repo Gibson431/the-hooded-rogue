@@ -1,10 +1,8 @@
 module.exports = {
-    commands: ['ping', 'status'],
+    commands: ['ping', 'latency'],
     category: 'Help',
-    description: 'Checks the bot\'s online status',
-    minArgs: 0,
-    maxArgs: 0,
+    description: 'Ping\'s the bot.',
     callback: ({message, args, text, client, prefix, instance}) => {
-        message.reply(`my status is currently set to: ${String(client.presence.status)}`)
+        message.channel.send(`🏓Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`);
     }
 }
