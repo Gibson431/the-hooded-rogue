@@ -1,4 +1,5 @@
 const Discord = require('discord.js')
+const Sourcebin = require('sourcebin')
 
 exports.serverInfo = (message) => {
     const { guild } = message
@@ -70,7 +71,23 @@ exports.confessionsAlert = new Discord.MessageEmbed()
     .setColor("#FF0000")
     .setAuthor("Confessions Update")
 
-exports.error = (err, message = null) => {
+exports.error = async (err, message = null) => {
+    const res = await Sourcebin.create(
+        [
+            {
+                content: JSON.stringify(err),
+                language: 'R',
+            },
+        ],
+        {
+            title: 'THR Error',
+            description: err.code,
+        }
+    )
+
+    console.log(JSON.stringify(err));
+    console.log(res);
+
     return {
         embed: {
             color: 0xFF0000,
@@ -79,7 +96,13 @@ exports.error = (err, message = null) => {
                 name: "Error",
                 icon_url: message ? message.author.displayAvatarURL() : null
             },
-            description: message ? (`**Cause:**\n> ${message.content}\n**Author:**\n> ${message.author.username}\n**Error code:**\n` + '```' + err + '```') : `\`\`\`${err}\`\`\``
+            description: message ? (`**Cause:**\n> ${message.content}\n**Author:**\n> ${message.author.username}\n**Error code:**\n` + '```' + err + '```') : `\`\`\`${err}\`\`\``,
+            fields: [
+                {
+                    name: 'Sourcebin Link',
+                    value: res.url
+                }
+            ]
         }
     }
 }

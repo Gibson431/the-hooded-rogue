@@ -5,6 +5,6 @@ module.exports = {
     ownerOnly: true,
     callback: ({message, args, text, client}) => {
         message.reply(`Testing error...`)
-        process.emitWarning('UnhandledPromiseRejectionWarning', `Test error`)
+        client.emit('error', `Test error`)
     }
 }
