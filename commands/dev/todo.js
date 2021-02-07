@@ -8,7 +8,7 @@ module.exports = {
     maxArgs: -1,
     expectedArgs: '<"new" or "edit"> <"complete" or "current" or "pain" or "lock"> [message] <-m messageID (only used when editing)> ["-n" note]',
     ownerOnly: true,
-    callback: async function ({message, args, text, client, prefix, instance}) {
+    callback: async function ({ message, args, text, client, prefix, instance }) {
         const { guild } = message
 
         // expectedArgs = this.expectedArgs
@@ -38,9 +38,11 @@ module.exports = {
 
             if (!isNaN(optionalArgs.m)) {
                 todoMessage = await todoChannel.messages.fetch(optionalArgs.m)
-                await todoMessage.edit(await Embed.todo({ todoText, status, optionalArgs, todoMessage })).then(p=>{message.reply(`<#740527234799894529> updated.`)})
+                await todoMessage.edit(await Embed.todo({ todoText, status, optionalArgs, todoMessage }))
+                message.reply(`<#740527234799894529> updated.`)
             } else {
-                todoChannel.send(Embed.todo({ todoText, status, optionalArgs })).then(p=>{message.reply(`<#740527234799894529> updated.`)})
+                await todoChannel.send(await Embed.todo({ todoText, status, optionalArgs }))
+                message.reply(`<#740527234799894529> updated.`)
             }
         }
 
@@ -48,7 +50,8 @@ module.exports = {
         else {
             todoText = args.join(' ')
             if (intent == 'new') {
-                todoChannel.send(Embed.todo({ todoText, status })).then(p => { message.reply(`<#740527234799894529> updated.`) })
+                await todoChannel.send(Embed.todo({ todoText, status }))
+                message.reply(`<#740527234799894529> updated.`)
             } else {
                 message.reply(syntaxtError)
             }
