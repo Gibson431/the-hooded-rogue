@@ -14,3 +14,9 @@ module.exports = async (client) => {
             })
     })
 }
+
+module.exports.config = {
+    displayName: 'TBA Invite Handler',
+    dbName: 'INVITE', // the name given to the feature in the db
+    loadDBFirst: false
+}

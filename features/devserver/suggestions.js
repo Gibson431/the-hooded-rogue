@@ -11,3 +11,9 @@ module.exports = (client) => {
         }
     })
 }
+
+module.exports.config = {
+    displayName: 'Suggestions handler',
+    dbName: 'SUGGESTIONS',
+    loadDBFirst: true
+}

@@ -21,5 +21,6 @@ module.exports = (client) => {
 
 module.exports.config = {
     displayName: 'Deleted Message Logging',
-    loadDBFirst: true
+    dbName: 'MESSAGE-LOG',
+    loadDBFirst: false
 }

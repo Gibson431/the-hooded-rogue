@@ -9,5 +9,6 @@ module.exports = (client) => {
 
 module.exports.config = {
     displayName: 'Log when bot joins new server',
+    dbName: 'GUILD-ALERT',
     loadDBFirst: false
 }

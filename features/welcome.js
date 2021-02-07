@@ -71,5 +71,6 @@ module.exports = (client) => {
 
 module.exports.config = {
     displayName: 'Welcome Messages',
-    loadDBFirst: true
+    dbName: 'WELCOME',
+    loadDBFirst: false
 }
