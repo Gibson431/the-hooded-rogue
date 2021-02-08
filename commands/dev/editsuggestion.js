@@ -7,6 +7,7 @@ module.exports = {
     minArgs: 2,
     maxArgs: -1,
     expectedArgs: '<"accept" or "deny"> <messageID> [reason]',
+    ownerOnly: true,
     callback: async function ({message, args, text, client, prefix, instance}) {
         const { guild } = message
 
@@ -45,5 +46,4 @@ module.exports = {
         // Ping that the suggestion's embed was not found
         if (!updated) { message.reply(`Suggestion not found.`) }
     },
-    ownerOnly: true
 }

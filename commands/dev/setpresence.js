@@ -4,6 +4,7 @@ module.exports = {
     description: 'Sets the bot\'s presence.',
     minArgs: 1,
     defaultArgs: '<"dnd" or "invisible" or "online"> ["-m" message]',
+    ownerOnly: true,
     callback: function ({message, args, text, client, prefix, instance}) {
         let statusMessage = null
         if (text.includes('-m')) {
@@ -24,5 +25,4 @@ module.exports = {
             message.reply(err)
         })
     },
-    ownerOnly: true
 }
