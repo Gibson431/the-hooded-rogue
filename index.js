@@ -58,11 +58,11 @@ client.on('ready', () => {
                 name: 'Ciphers',
                 emoji: '🕵️',
             },
-            {
-                name: 'Dev Commands',
-                emoji: '🚫',
-                hidden: 'true',
-            },
+            // {
+            //     name: 'Dev Commands',
+            //     emoji: '🚫',
+            //     hidden: 'true',
+            // },
             {
                 name: 'Randomizers',
                 emoji: '🎲',
