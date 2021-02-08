@@ -75,9 +75,9 @@ client.on('ready', () => {
         .setColor(0x000000)
 })
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', async err => {
     console.log(err)
-    errorChannel.send(Embed.error(err))
+    errorChannel.send(await Embed.error(err))
 })
 
 // Start the bot

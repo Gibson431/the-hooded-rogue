@@ -72,7 +72,7 @@ exports.confessionsAlert = new Discord.MessageEmbed()
     .setAuthor("Confessions Update")
 
 exports.error = async (err, message = null) => {
-    const res = await Sourcebin.create(
+    res = await Sourcebin.create(
         [
             {
                 content: JSON.stringify(err),
@@ -84,9 +84,6 @@ exports.error = async (err, message = null) => {
             description: err.code,
         }
     )
-
-    console.log(JSON.stringify(err));
-    console.log(res);
 
     return {
         embed: {
