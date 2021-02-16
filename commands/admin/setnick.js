@@ -1,4 +1,4 @@
-const nameSchema = require("../../models/name-schema")
+const nameSchema = require("@models/name-schema")
 
 const cache = new Map()
 
