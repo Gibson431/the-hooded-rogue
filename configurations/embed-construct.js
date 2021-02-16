@@ -72,18 +72,18 @@ exports.confessionsAlert = new Discord.MessageEmbed()
     .setAuthor("Confessions Update")
 
 exports.error = async (err, message = null) => {
-    res = await Sourcebin.create(
-        [
-            {
-                content: JSON.stringify(err),
-                language: 'R',
-            },
-        ],
-        {
-            title: 'THR Error',
-            description: err.code,
-        }
-    )
+    // res = await Sourcebin.create(
+    //     [
+    //         {
+    //             content: JSON.stringify(err),
+    //             language: 'R',
+    //         },
+    //     ],
+    //     {
+    //         title: 'THR Error',
+    //         description: err.code,
+    //     }
+    // )
 
     return {
         embed: {
@@ -94,12 +94,12 @@ exports.error = async (err, message = null) => {
                 icon_url: message ? message.author.displayAvatarURL() : null
             },
             description: message ? (`**Cause:**\n> ${message.content}\n**Author:**\n> ${message.author.username}\n**Error code:**\n` + '```' + err + '```') : `\`\`\`${err}\`\`\``,
-            fields: [
-                {
-                    name: 'Sourcebin Link',
-                    value: res.url
-                }
-            ]
+            // fields: [
+            //     {
+            //         name: 'Sourcebin Link',
+            //         value: res.url
+            //     }
+            // ]
         }
     }
 }
