@@ -12,10 +12,11 @@ module.exports = {
 
         // Set the syntax error message
         syntaxtError = instance.messageHandler
-            .get(guild, 'SYNTAX_ERROR')
-            .replace('{PREFIX}', prefix)
-            .replace('{COMMAND}', this.names[0])
-            .replace('{ARGUMENTS}', this.expectedArgs)
+            .get(guild, 'SYNTAX_ERROR', {
+                PREFIX: prefix,
+                COMMAND: this.names[0],
+                ARGUMENTS: this.expectedArgs
+            })
 
         let intent = args.shift()
         let target = args.join(' ')
