@@ -94,6 +94,7 @@ exports.error = async (err, message = null) => {
                 icon_url: message ? message.author.displayAvatarURL() : null
             },
             description: message ? (`**Cause:**\n> ${message.content}\n**Author:**\n> ${message.author.username}\n**Error code:**\n` + '```' + err + '```') : `\`\`\`${err}\`\`\``,
+            // FIXME
             // fields: [
             //     {
             //         name: 'Sourcebin Link',
