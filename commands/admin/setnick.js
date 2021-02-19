@@ -1,16 +1,14 @@
 const nameSchema = require("@models/name-schema")
+const mongoose = require("mongoose")
 
 const cache = new Map()
 
 const loadData = async () => {
     const results = await nameSchema.find()
-
     for (const result of results) {
         cache.set(result._id, result.nickname)
     }
 }
-loadData()
-
 
 module.exports = {
     commands: ['setnick', 'setnickname', 'updatenick', 'updatenickname'],
@@ -23,19 +21,26 @@ module.exports = {
     requiredPermissions: [
         'ADMINISTRATOR'
     ],
-    init: function (client, instance) {
+    init: async function (client, instance) {
         let prefix
         let nickname
-        client.guilds.cache.each(guild => {
-            nickname = cache.get(guild.id) ? cache.get(guild.nickname) : 'THR'
-            prefix = instance.getPrefix(guild)
-            guild.me.setNickname(`${prefix} ${nickname}`)
+        instance.on('databaseConnected', async (connection, state) => {
+            if (state === 'Connected') {
+                setTimeout(async () => {
+                    await loadData()
+                    client.guilds.cache.each(async guild => {
+                        nickname = cache.get(guild.id) ? cache.get(guild.id) : 'Puppet Master'
+                        prefix = instance.getPrefix(guild)
+                        guild.me.setNickname(`${prefix} ${nickname}`)
+                    })
+                }, 500);
+            }
         })
     },
     callback: async function ({ message, args, instance }) {
         let { guild } = message
         let prefix = instance.getPrefix(guild)
-        let nickname = cache.get(guild.id) ? cache.get(guild.nickname) : 'THR'
+        let nickname = cache.get(guild.id) ? cache.get(guild.nickname) : 'Puppet Master'
 
         if (args.length != 0) {
             nickname = args.join(' ')
@@ -43,7 +48,7 @@ module.exports = {
                 _id: guild.id
             }, {
                 _id: guild.id,
-                nickname: nickname
+                    nickname: nickname,
             }, {
                 upsert: true
             })
