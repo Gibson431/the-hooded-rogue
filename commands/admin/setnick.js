@@ -29,7 +29,7 @@ module.exports = {
                 setTimeout(async () => {
                     await loadData()
                     client.guilds.cache.each(async guild => {
-                        nickname = cache.get(guild.id) ? cache.get(guild.id) : 'Puppet Master'
+                        nickname = cache.get(guild.id) ? cache.get(guild.id) : 'The Hooded Rogue'
                         prefix = instance.getPrefix(guild)
                         guild.me.setNickname(`${prefix} ${nickname}`)
                     })
