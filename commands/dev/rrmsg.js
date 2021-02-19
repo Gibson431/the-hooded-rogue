@@ -1,5 +1,3 @@
-// TODO: https://www.youtube.com/watch?v=Q2DAWskWOU4&t=856s
-
 const reactionSchema = require('@models/reaction-role-schema')
 const { addToCache } = require('@features/devserver/reaction-roles')
 
